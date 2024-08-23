@@ -4,22 +4,22 @@
   <export target="map.json" format="json"/>
  </editorsettings>
  <tileset firstgid="1" name="water" tilewidth="64" tileheight="64" tilecount="1" columns="1">
-  <image source="Tiny Swords (Update 010)/Terrain/Water/Water.png" width="64" height="64"/>
+  <image source="../tiny-swords-update-010/Terrain/Water/Water.png" width="64" height="64"/>
  </tileset>
  <tileset firstgid="2" name=" land-flat" tilewidth="64" tileheight="64" tilecount="40" columns="10">
-  <image source="Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Flat.png" width="640" height="256"/>
+  <image source="../tiny-swords-update-010/Terrain/Ground/Tilemap_Flat.png" width="640" height="256"/>
  </tileset>
  <tileset firstgid="42" name="land-elevation" tilewidth="64" tileheight="64" tilecount="32" columns="4">
-  <image source="Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Elevation.png" width="256" height="512"/>
+  <image source="../tiny-swords-update-010/Terrain/Ground/Tilemap_Elevation.png" width="256" height="512"/>
  </tileset>
  <tileset firstgid="74" name="shadows-ground" tilewidth="64" tileheight="64" tilecount="9" columns="3">
-  <image source="Tiny Swords (Update 010)/Terrain/Ground/Shadows.png" width="192" height="192"/>
+  <image source="../tiny-swords-update-010/Terrain/Ground/Shadows.png" width="192" height="192"/>
  </tileset>
  <tileset firstgid="83" name="bridge" tilewidth="64" tileheight="64" tilecount="12" columns="3">
-  <image source="Tiny Swords (Update 010)/Terrain/Bridge/Bridge_All.png" width="192" height="256"/>
+  <image source="../tiny-swords-update-010/Terrain/Bridge/Bridge_All.png" width="192" height="256"/>
  </tileset>
  <tileset firstgid="95" name="foam" tilewidth="64" tileheight="64" tilecount="72" columns="24">
-  <image source="Tiny Swords (Update 010)/Terrain/Water/Foam/Foam.png" width="1536" height="192"/>
+  <image source="../tiny-swords-update-010/Terrain/Water/Foam/Foam.png" width="1536" height="192"/>
   <tile id="1">
    <animation>
     <frame tileid="1" duration="100"/>
@@ -70,7 +70,7 @@
   </tile>
  </tileset>
  <tileset firstgid="167" name="invisible_wall" tilewidth="64" tileheight="64" tilecount="1" columns="1">
-  <image source="invisible_wall.png" width="64" height="64"/>
+  <image source="../tiny-swords-update-010/Terrain/Other/invisible_wall.png" width="64" height="64"/>
   <tile id="0">
    <properties>
     <property name="collider" type="bool" value="true"/>
@@ -532,7 +532,7 @@
 </data>
   </layer>
  </group>
- <group id="13" name="level-3" visible="0" locked="1">
+ <group id="13" name="level-3" locked="1">
   <layer id="12" name="shadows" width="29" height="19">
    <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
