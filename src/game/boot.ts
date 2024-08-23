@@ -7,11 +7,9 @@ export class Boot extends Phaser.Scene {
     console.log('Boot.preload()');
 
     let url = 'src/assets/tiled/';
-
     this.load.tilemapTiledJSON('map', url + 'map.json');
 
     url = 'src/assets/tiny-swords-update-010/Terrain/';
-
     this.loadMap('landFlatImg', url + 'Ground/Tilemap_Flat.png');
     this.loadMap('bridgeImg', url + 'Bridge/Bridge_All.png');
     this.loadMap('foamImg', url + 'Water/Foam/Foam.png');
@@ -20,8 +18,16 @@ export class Boot extends Phaser.Scene {
     this.loadMap('shadowsImg', url + 'Ground/Shadows.png');
     this.loadMap('waterImg', url + 'Water/Water.png');
 
+    url = 'src/assets/tiny-swords-update-010/UI/';
+    this.loadMap(
+      'ribbonYellow3SlidesImg',
+      url + 'Ribbons/Ribbon_Yellow_3Slides.png'
+    );
+
     this.loadPlayer('playerIdle', 'idle');
     this.loadPlayer('playerWalk', 'walk');
+
+    this.loadFont('ThaleahFat', 'src/assets/fonts/ThaleahFat.ttf');
   }
 
   create() {
@@ -47,5 +53,17 @@ export class Boot extends Phaser.Scene {
       frameWidth: 64,
       frameHeight: 64,
     });
+  }
+
+  loadFont(name: string, url: string) {
+    var newFont = new FontFace(name, `url(${url})`);
+    newFont
+      .load()
+      .then((loaded) => {
+        document.fonts.add(loaded);
+      })
+      .catch((error) => {
+        return error;
+      });
   }
 }

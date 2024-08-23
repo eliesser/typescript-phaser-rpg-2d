@@ -308,26 +308,26 @@
                  "name":"level1",
                  "objects":[
                         {
-                         "height":125.508291276136,
+                         "height":125.508,
                          "id":1,
                          "name":"",
                          "rotation":0,
                          "type":"",
                          "visible":true,
-                         "width":123.66258111031,
-                         "x":703.215573179524,
-                         "y":640.461427541456
+                         "width":123.663,
+                         "x":703.216,
+                         "y":640.461
                         }, 
                         {
-                         "height":125.508291276136,
+                         "height":125.508,
                          "id":17,
                          "name":"",
                          "rotation":0,
                          "type":"",
                          "visible":true,
-                         "width":127.354001441961,
-                         "x":1471.03100216294,
-                         "y":830.569574621485
+                         "width":127.354,
+                         "x":1471.03,
+                         "y":830.57
                         }],
                  "opacity":1,
                  "type":"objectgroup",
@@ -341,26 +341,26 @@
                  "name":"level2",
                  "objects":[
                         {
-                         "height":121.816870944485,
+                         "height":121.817,
                          "id":6,
                          "name":"",
                          "rotation":0,
                          "type":"",
                          "visible":true,
-                         "width":121.816870944484,
-                         "x":705.06128334535,
-                         "y":514.953136265321
+                         "width":121.817,
+                         "x":705.061,
+                         "y":514.953
                         }, 
                         {
-                         "height":125.508291276136,
+                         "height":125.508,
                          "id":15,
                          "name":"",
                          "rotation":0,
                          "type":"",
                          "visible":true,
-                         "width":125.508291276135,
-                         "x":1471.03100216294,
-                         "y":699.524152847873
+                         "width":125.508,
+                         "x":1471.03,
+                         "y":699.524
                         }],
                  "opacity":1,
                  "type":"objectgroup",
@@ -827,7 +827,7 @@
          "name":"level-3",
          "opacity":1,
          "type":"group",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -860,8 +860,38 @@
          "width":29,
          "x":0,
          "y":0
+        }, 
+        {
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 168, 169, 169, 169, 170, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "height":19,
+         "id":38,
+         "name":"top",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":29,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":38,
+ "nextlayerid":39,
  "nextobjectid":18,
  "orientation":"orthogonal",
  "renderorder":"right-down",
@@ -871,7 +901,7 @@
         {
          "columns":1,
          "firstgid":1,
-         "image":"Tiny Swords (Update 010)\/Terrain\/Water\/Water.png",
+         "image":"..\/tiny-swords-update-010\/Terrain\/Water\/Water.png",
          "imageheight":64,
          "imagewidth":64,
          "margin":0,
@@ -884,7 +914,7 @@
         {
          "columns":10,
          "firstgid":2,
-         "image":"Tiny Swords (Update 010)\/Terrain\/Ground\/Tilemap_Flat.png",
+         "image":"..\/tiny-swords-update-010\/Terrain\/Ground\/Tilemap_Flat.png",
          "imageheight":256,
          "imagewidth":640,
          "margin":0,
@@ -897,7 +927,7 @@
         {
          "columns":4,
          "firstgid":42,
-         "image":"Tiny Swords (Update 010)\/Terrain\/Ground\/Tilemap_Elevation.png",
+         "image":"..\/tiny-swords-update-010\/Terrain\/Ground\/Tilemap_Elevation.png",
          "imageheight":512,
          "imagewidth":256,
          "margin":0,
@@ -910,7 +940,7 @@
         {
          "columns":3,
          "firstgid":74,
-         "image":"Tiny Swords (Update 010)\/Terrain\/Ground\/Shadows.png",
+         "image":"..\/tiny-swords-update-010\/Terrain\/Ground\/Shadows.png",
          "imageheight":192,
          "imagewidth":192,
          "margin":0,
@@ -923,7 +953,7 @@
         {
          "columns":3,
          "firstgid":83,
-         "image":"Tiny Swords (Update 010)\/Terrain\/Bridge\/Bridge_All.png",
+         "image":"..\/tiny-swords-update-010\/Terrain\/Bridge\/Bridge_All.png",
          "imageheight":256,
          "imagewidth":192,
          "margin":0,
@@ -936,7 +966,7 @@
         {
          "columns":24,
          "firstgid":95,
-         "image":"Tiny Swords (Update 010)\/Terrain\/Water\/Foam\/Foam.png",
+         "image":"..\/tiny-swords-update-010\/Terrain\/Water\/Foam\/Foam.png",
          "imageheight":192,
          "imagewidth":1536,
          "margin":0,
@@ -1094,7 +1124,7 @@
         {
          "columns":1,
          "firstgid":167,
-         "image":"invisible_wall.png",
+         "image":"..\/tiny-swords-update-010\/Terrain\/Other\/invisible_wall.png",
          "imageheight":64,
          "imagewidth":64,
          "margin":0,
@@ -1112,6 +1142,19 @@
                          "value":true
                         }]
                 }],
+         "tilewidth":64
+        }, 
+        {
+         "columns":3,
+         "firstgid":168,
+         "image":"..\/tiny-swords-update-010\/UI\/Ribbons\/Ribbon_Yellow_3Slides.png",
+         "imageheight":64,
+         "imagewidth":192,
+         "margin":0,
+         "name":"Ribbon_Yellow_3Slides",
+         "spacing":0,
+         "tilecount":3,
+         "tileheight":64,
          "tilewidth":64
         }],
  "tilewidth":64,

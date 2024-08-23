@@ -62,6 +62,26 @@ export class Map1 extends Phaser.Scene {
 
     new Level3(this);
 
+    let layer = this.add.container();
+    layer.add(
+      this.add.text(195, 57, 'Samantha', {
+        fontFamily: 'ThaleahFat',
+        fontSize: '48px',
+        color: '#000000',
+      })
+    );
+    layer.setDepth(5);
+    layer.setVisible(true);
+
+    const ribbonYellow3SlidesImg = this.map.addTilesetImage(
+      'Ribbon_Yellow_3Slides',
+      'ribbonYellow3SlidesImg'
+    )!;
+    layer = this.add.container();
+    layer.add(this.map.createLayer('top', ribbonYellow3SlidesImg)!);
+    layer.setDepth(4);
+    layer.setVisible(true);
+
     this.cursors = this.input.keyboard?.createCursorKeys();
 
     this.colliderLevel1 = this.physics.add.collider(
