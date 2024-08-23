@@ -6,16 +6,16 @@ export class Boot extends Phaser.Scene {
   preload() {
     console.log('Boot.preload()');
 
-    let url = 'src/assets/typescript-phaser-rpg-2d/';
+    let url = 'src/assets/tiled/';
 
     this.load.tilemapTiledJSON('map', url + 'map.json');
 
-    url = 'src/assets/typescript-phaser-rpg-2d/tiny-swords-update-010/Terrain/';
+    url = 'src/assets/tiny-swords-update-010/Terrain/';
 
     this.loadMap('landFlatImg', url + 'Ground/Tilemap_Flat.png');
     this.loadMap('bridgeImg', url + 'Bridge/Bridge_All.png');
     this.loadMap('foamImg', url + 'Water/Foam/Foam.png');
-    this.loadMap('invisibleWallImg', url + 'invisible_wall.png');
+    this.loadMap('invisibleWallImg', url + 'Other/invisible_wall.png');
     this.loadMap('landElevationImg', url + 'Ground/Tilemap_Elevation.png');
     this.loadMap('shadowsImg', url + 'Ground/Shadows.png');
     this.loadMap('waterImg', url + 'Water/Water.png');
