@@ -26,6 +26,7 @@ export class Boot extends Phaser.Scene {
 
     this.loadPlayer('playerIdle', 'idle');
     this.loadPlayer('playerWalk', 'walk');
+    this.loadPlayer('playerDeath', 'death');
 
     this.loadFont('ThaleahFat', 'src/assets/fonts/ThaleahFat.ttf');
   }

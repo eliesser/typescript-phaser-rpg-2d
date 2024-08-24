@@ -4,6 +4,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
   velocityPlayer: number;
   direction!: 'up' | 'down' | 'left' | 'right';
   scene: Map1;
+  life: number = 100;
   animations: any = {
     last: 'standingDown',
 
@@ -16,9 +17,15 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     walkingUp: 'walkingUp',
     walkingLeft: 'walkingLeft',
     walkingRight: 'walkingRight',
-
     walkingUpLeft: 'walkingUpLeft',
     walkingUpRight: 'walkingUpRight',
+
+    dyingDown: 'dyingDown',
+    dyingUp: 'dyingUp',
+    dyingLeft: 'dyingLeft',
+    dyingRight: 'dyingRight',
+    dyingUpLeft: 'dyingUpLeft',
+    dyingUpRight: 'dyingUpRight',
   };
 
   constructor(scene: Map1, x: number, y: number) {
@@ -53,9 +60,15 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.walkingUp();
     this.walkingLeft();
     this.walkingRight();
-
     this.walkingUpLeft();
     this.walkingUpRight();
+
+    this.dyingDown();
+    this.dyingUp();
+    this.dyingLeft();
+    this.dyingRight();
+    this.dyingUpLeft();
+    this.dyingUpRight();
   }
 
   update() {
@@ -64,32 +77,34 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   movePlayer() {
-    if (this.scene.cursors.up.isDown) {
-      this.setVelocityY(-this.velocityPlayer);
-      this.animations.last = this.animations.walkingDown;
-    } else if (this.scene.cursors.down.isDown) {
-      this.setVelocityY(this.velocityPlayer);
-      this.animations.last = this.animations.walkingUp;
-    } else {
-      this.setVelocityY(0);
-      if (this.direction === 'down')
-        this.animations.last = this.animations.standingDown;
-      else if (this.direction === 'up')
-        this.animations.last = this.animations.standingUp;
-    }
+    if (this.life > 0) {
+      if (this.scene.cursors.up.isDown) {
+        this.setVelocityY(-this.velocityPlayer);
+        this.animations.last = this.animations.walkingDown;
+      } else if (this.scene.cursors.down.isDown) {
+        this.setVelocityY(this.velocityPlayer);
+        this.animations.last = this.animations.walkingUp;
+      } else {
+        this.setVelocityY(0);
+        if (this.direction === 'down')
+          this.animations.last = this.animations.standingDown;
+        else if (this.direction === 'up')
+          this.animations.last = this.animations.standingUp;
+      }
 
-    if (this.scene.cursors.right.isDown) {
-      this.setVelocityX(this.velocityPlayer);
-      this.animations.last = this.animations.walkingRight;
-    } else if (this.scene.cursors.left.isDown) {
-      this.setVelocityX(-this.velocityPlayer);
-      this.animations.last = this.animations.walkingRight;
-    } else {
-      this.setVelocityX(0);
-      if (this.direction === 'right')
-        this.animations.last = this.animations.standingRight;
-      else if (this.direction === 'left')
-        this.animations.last = this.animations.standingLeft;
+      if (this.scene.cursors.right.isDown) {
+        this.setVelocityX(this.velocityPlayer);
+        this.animations.last = this.animations.walkingRight;
+      } else if (this.scene.cursors.left.isDown) {
+        this.setVelocityX(-this.velocityPlayer);
+        this.animations.last = this.animations.walkingRight;
+      } else {
+        this.setVelocityX(0);
+        if (this.direction === 'right')
+          this.animations.last = this.animations.standingRight;
+        else if (this.direction === 'left')
+          this.animations.last = this.animations.standingLeft;
+      }
     }
   }
 
@@ -109,20 +124,34 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       }
     } */
 
-    if (this.scene.cursors.up.isDown && this.scene.cursors.left.isDown) {
-      animationName = this.animations.walkingUpLeft;
-    } else if (
-      this.scene.cursors.up.isDown &&
-      this.scene.cursors.right.isDown
-    ) {
-      animationName = this.animations.walkingUpRight;
+    if (this.life > 0) {
+      if (this.scene.cursors.up.isDown && this.scene.cursors.left.isDown) {
+        animationName = this.animations.walkingUpLeft;
+      } else if (
+        this.scene.cursors.up.isDown &&
+        this.scene.cursors.right.isDown
+      ) {
+        animationName = this.animations.walkingUpRight;
+      }
+    } else {
+      if (this.direction === 'down') animationName = this.animations.dyingDown;
+      else if (this.direction === 'up') animationName = this.animations.dyingUp;
+      else if (this.direction === 'right')
+        animationName = this.animations.dyingRight;
+      else if (this.direction === 'left')
+        animationName = this.animations.dyingLeft;
     }
 
     if (this.anims.getName() !== animationName)
       this.anims.play(animationName, true);
   }
 
-  animationPlayer(key: string, spritesheetKey: string, row: number) {
+  animationPlayer(
+    key: string,
+    spritesheetKey: string,
+    row: number,
+    repeat: number = -1
+  ) {
     const lengthX = 8;
     const start = lengthX * row;
     const end = lengthX * row + lengthX - 1;
@@ -134,7 +163,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         end,
       }),
       frameRate: 10,
-      repeat: -1,
+      repeat,
     });
   }
 
@@ -176,6 +205,30 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
   walkingUpRight() {
     this.animationPlayer('walkingUpRight', 'playerWalk', 4);
+  }
+
+  dyingDown() {
+    this.animationPlayer('dyingDown', 'playerDeath', 0, 0);
+  }
+
+  dyingUp() {
+    this.animationPlayer('dyingUp', 'playerDeath', 3, 0);
+  }
+
+  dyingLeft() {
+    this.animationPlayer('dyingLeft', 'playerDeath', 1, 0);
+  }
+
+  dyingRight() {
+    this.animationPlayer('dyingRight', 'playerDeath', 5, 0);
+  }
+
+  dyingUpLeft() {
+    this.animationPlayer('dyingUpLeft', 'playerDeath', 2, 0);
+  }
+
+  dyingUpRight() {
+    this.animationPlayer('dyingUpRight', 'playerDeath', 4, 0);
   }
 
   getAnimationByName() {
