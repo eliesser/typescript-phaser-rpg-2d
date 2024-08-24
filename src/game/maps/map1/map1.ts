@@ -12,8 +12,10 @@ export class Map1 extends Phaser.Scene {
   cursors!: any;
   colliderLevel1!: Phaser.Physics.Arcade.Collider;
   colliderLevel2!: Phaser.Physics.Arcade.Collider;
-  rectColliderLevel1!: Phaser.GameObjects.Group;
-  rectColliderLevel2!: Phaser.GameObjects.Group;
+  colliderLevel3!: Phaser.Physics.Arcade.Collider;
+  rectangleLevel11!: Phaser.GameObjects.Group;
+  rectangleLevel12!: Phaser.GameObjects.Group;
+  rectangleLevel23!: Phaser.GameObjects.Group;
   landFlat!: Phaser.Tilemaps.Tileset;
   bridge!: Phaser.Tilemaps.Tileset;
   foam!: Phaser.Tilemaps.Tileset;
@@ -23,6 +25,7 @@ export class Map1 extends Phaser.Scene {
   water!: Phaser.Tilemaps.Tileset;
   invisibleWallLayerLevel1: any;
   invisibleWallLayerLevel2: any;
+  invisibleWallLayerLevel3: any;
 
   constructor() {
     super('Map1');
@@ -91,53 +94,38 @@ export class Map1 extends Phaser.Scene {
     );
     this.colliderLevel2.active = false;
 
-    let objects: Phaser.Types.Tilemaps.TiledObject[] =
-      this.map.getObjectLayer('level-1/level1')!.objects;
+    this.colliderLevel3 = this.physics.add.collider(
+      this.groupPlayer,
+      this.invisibleWallLayerLevel3
+    );
+    this.colliderLevel3.active = false;
 
-    this.rectColliderLevel1 = this.add.group();
-
-    objects.forEach((object) => {
-      const newObject = this.physics.add.image(
-        object.x! + object.width! / 2,
-        object.y! + object.height! / 2,
-        ''
-      );
-
-      newObject.setSize(object.width!, object.height!);
-      newObject.setVisible(false);
-
-      this.rectColliderLevel1.add(newObject);
-    });
-
+    this.rectangleLevel11 = this.add.group();
+    this.addToGroup('level-1/level1', this.rectangleLevel11);
     this.physics.add.overlap(
       this.groupPlayer,
-      this.rectColliderLevel1,
+      this.rectangleLevel11,
       this.goToLevel1,
       undefined,
       this
     );
 
-    objects = this.map.getObjectLayer('level-1/level2')!.objects;
-
-    this.rectColliderLevel2 = this.add.group();
-
-    objects.forEach((object) => {
-      const newObject = this.physics.add.image(
-        object.x! + object.width! / 2,
-        object.y! + object.height! / 2,
-        ''
-      );
-
-      newObject.setSize(object.width!, object.height!);
-      newObject.setVisible(false);
-
-      this.rectColliderLevel2.add(newObject);
-    });
-
+    this.rectangleLevel12 = this.add.group();
+    this.addToGroup('level-1/level2', this.rectangleLevel12);
     this.physics.add.overlap(
       this.groupPlayer,
-      this.rectColliderLevel2,
+      this.rectangleLevel12,
       this.goToLevel2,
+      undefined,
+      this
+    );
+
+    this.rectangleLevel23 = this.add.group();
+    this.addToGroup('level-2/level3', this.rectangleLevel23);
+    this.physics.add.overlap(
+      this.groupPlayer,
+      this.rectangleLevel23,
+      this.goToLevel3,
       undefined,
       this
     );
@@ -147,15 +135,41 @@ export class Map1 extends Phaser.Scene {
     this.player.update();
   }
 
+  addToGroup(key: string, group: any) {
+    const objects = this.map.getObjectLayer(key)!.objects;
+
+    objects.forEach((object: any) => {
+      const newObject = this.physics.add.image(
+        object.x! + object.width! / 2,
+        object.y! + object.height! / 2,
+        ''
+      );
+
+      newObject.setSize(object.width!, object.height!);
+      newObject.setVisible(false);
+
+      group.add(newObject);
+    });
+  }
+
   goToLevel1() {
     this.colliderLevel1.active = true;
     this.colliderLevel2.active = false;
+    this.colliderLevel3.active = false;
     this.groupPlayer.setDepth(1.5);
   }
 
   goToLevel2() {
     this.colliderLevel1.active = false;
     this.colliderLevel2.active = true;
+    this.colliderLevel3.active = false;
     this.groupPlayer.setDepth(2.5);
+  }
+
+  goToLevel3() {
+    this.colliderLevel1.active = true;
+    this.colliderLevel2.active = false;
+    this.colliderLevel3.active = true;
+    this.groupPlayer.setDepth(3.5);
   }
 }

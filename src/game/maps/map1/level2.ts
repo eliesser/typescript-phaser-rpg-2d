@@ -12,6 +12,12 @@ export default class Level2 {
     layer.add(this.scene.map.createLayer('level-2/elevation', this.scene.landElevation)!);
     layer.add(this.scene.map.createLayer('level-2/grass', this.scene.landFlat)!);
     layer.add(this.scene.map.createLayer('level-2/bridges', this.scene.bridge)!);
+
+    layer.add(this.scene.map.createLayer('level-2/elevation/shadows', this.scene.shadowsGround)!);
+    layer.add(this.scene.map.createLayer('level-2/elevation/elevation', this.scene.landElevation)!);
+    layer.add(this.scene.map.createLayer('level-2/elevation/grass', this.scene.landFlat)!);
+    layer.add(this.scene.map.createLayer('level-2/elevation/stairs', this.scene.landElevation)!);
+
     this.scene.invisibleWallLayerLevel2 = this.scene.map
       .createLayer('level-2-enabled', this.scene.invisibleWall)
       ?.setVisible(false);
