@@ -79,10 +79,10 @@ export default class PlayerPro extends Phaser.Physics.Arcade.Sprite {
     this.hair = new SetPlayer(this.scene, 170, 719, this, 'Hair');
     this.scene.groupPlayer.add(this.hair);
 
-    /* this.hat = new SetPlayer(this.scene, 170, 719, this, "Hat");
+    /* this.hat = new SetPlayer(this.scene, 170, 719, this, 'Hat');
     this.scene.groupPlayer.add(this.hat);
 
-    this.clothing = new SetPlayer(this.scene, 170, 719, this, "Clothing", "Lvl2");
+    this.clothing = new SetPlayer(this.scene, 170, 719, this, 'Clothing', 'Lvl1');
     this.scene.groupPlayer.add(this.clothing); */
   }
 
