@@ -16,6 +16,9 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     walkingUp: 'walkingUp',
     walkingLeft: 'walkingLeft',
     walkingRight: 'walkingRight',
+
+    walkingUpLeft: 'walkingUpLeft',
+    walkingUpRight: 'walkingUpRight',
   };
 
   constructor(scene: Map1, x: number, y: number) {
@@ -50,6 +53,9 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.walkingUp();
     this.walkingLeft();
     this.walkingRight();
+
+    this.walkingUpLeft();
+    this.walkingUpRight();
   }
 
   update() {
@@ -103,6 +109,15 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       }
     } */
 
+    if (this.scene.cursors.up.isDown && this.scene.cursors.left.isDown) {
+      animationName = this.animations.walkingUpLeft;
+    } else if (
+      this.scene.cursors.up.isDown &&
+      this.scene.cursors.right.isDown
+    ) {
+      animationName = this.animations.walkingUpRight;
+    }
+
     if (this.anims.getName() !== animationName)
       this.anims.play(animationName, true);
   }
@@ -153,6 +168,14 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
   walkingRight() {
     this.animationPlayer('walkingRight', 'playerWalk', 5);
+  }
+
+  walkingUpLeft() {
+    this.animationPlayer('walkingUpLeft', 'playerWalk', 2);
+  }
+
+  walkingUpRight() {
+    this.animationPlayer('walkingUpRight', 'playerWalk', 4);
   }
 
   getAnimationByName() {
