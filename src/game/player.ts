@@ -4,7 +4,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
   velocityPlayer: number;
   direction!: 'up' | 'down' | 'left' | 'right';
   scene: Map1;
-  life: number = 100;
+  life!: number;
   animations: any = {
     last: 'standingDown',
 
@@ -46,6 +46,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.setDepth(1.5);
     this.setVisible(true);
     // this.setCollideWorldBounds(true);
+    this.life = 100;
 
     this.create();
   }
