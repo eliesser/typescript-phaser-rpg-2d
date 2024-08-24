@@ -8,18 +8,10 @@ export default class Level3 {
 
     const layer = this.scene.add.container();
 
-    layer.add(
-      this.scene.map.createLayer('level-3/shadows', this.scene.shadowsGround)!
-    );
-    layer.add(
-      this.scene.map.createLayer('level-3/elevation', this.scene.landElevation)!
-    );
-    layer.add(
-      this.scene.map.createLayer('level-3/grass', this.scene.landFlat)!
-    );
-    layer.add(
-      this.scene.map.createLayer('level-3/stairs', this.scene.landElevation)!
-    );
+    layer.add(this.scene.map.createLayer('level-3/shadows', this.scene.shadowsGround)!);
+    layer.add(this.scene.map.createLayer('level-3/elevation', this.scene.landElevation)!);
+    layer.add(this.scene.map.createLayer('level-3/grass', this.scene.landFlat)!);
+    layer.add(this.scene.map.createLayer('level-3/stairs', this.scene.landElevation)!);
 
     layer.setDepth(3);
     layer.setVisible(true);

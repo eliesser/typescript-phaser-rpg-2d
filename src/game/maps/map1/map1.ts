@@ -2,16 +2,16 @@ import Level1 from './level1.ts';
 import Level2 from './level2.ts';
 import Level3 from './level3.ts';
 
-import Player from '../../player.ts';
+import PlayerPro from '../../player/player-pro.ts';
+import Player from '../../player/player.ts';
 
 export class Map1 extends Phaser.Scene {
   map!: Phaser.Tilemaps.Tilemap;
   player!: Phaser.Physics.Arcade.Sprite;
+  groupPlayer!: any;
   cursors!: any;
   colliderLevel1!: Phaser.Physics.Arcade.Collider;
   colliderLevel2!: Phaser.Physics.Arcade.Collider;
-  level1!: Phaser.Tilemaps.ObjectLayer;
-  level2!: Phaser.Tilemaps.ObjectLayer;
   rectColliderLevel1!: Phaser.GameObjects.Group;
   rectColliderLevel2!: Phaser.GameObjects.Group;
   landFlat!: Phaser.Tilemaps.Tileset;
@@ -40,23 +40,17 @@ export class Map1 extends Phaser.Scene {
     this.landFlat = this.map.addTilesetImage(' land-flat', 'landFlatImg')!;
     this.bridge = this.map.addTilesetImage('bridge', 'bridgeImg')!;
     this.foam = this.map.addTilesetImage('foam', 'foamImg')!;
-    this.invisibleWall = this.map.addTilesetImage(
-      'invisible_wall',
-      'invisibleWallImg'
-    )!;
-    this.landElevation = this.map.addTilesetImage(
-      'land-elevation',
-      'landElevationImg'
-    )!;
-    this.shadowsGround = this.map.addTilesetImage(
-      'shadows-ground',
-      'shadowsImg'
-    )!;
+    this.invisibleWall = this.map.addTilesetImage('invisible_wall', 'invisibleWallImg')!;
+    this.landElevation = this.map.addTilesetImage('land-elevation', 'landElevationImg')!;
+    this.shadowsGround = this.map.addTilesetImage('shadows-ground', 'shadowsImg')!;
     this.water = this.map.addTilesetImage('water', 'waterImg')!;
 
     new Level1(this);
 
-    this.player = new Player(this, 170, 719);
+    this.groupPlayer = this.physics.add.group();
+    //this.player = new Player(this, 170, 719);
+    this.player = new PlayerPro(this, 170, 719, 'playerPro', 'female');
+    this.groupPlayer.add(this.player);
 
     new Level2(this);
 
@@ -83,15 +77,16 @@ export class Map1 extends Phaser.Scene {
     layer.setVisible(true);
 
     this.cursors = this.input.keyboard?.createCursorKeys();
+    this.cursors.shift = this.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
 
     this.colliderLevel1 = this.physics.add.collider(
-      this.player,
+      this.groupPlayer,
       this.invisibleWallLayerLevel1
     );
     this.colliderLevel1.active = true;
 
     this.colliderLevel2 = this.physics.add.collider(
-      this.player,
+      this.groupPlayer,
       this.invisibleWallLayerLevel2
     );
     this.colliderLevel2.active = false;
@@ -115,7 +110,7 @@ export class Map1 extends Phaser.Scene {
     });
 
     this.physics.add.overlap(
-      this.player,
+      this.groupPlayer,
       this.rectColliderLevel1,
       this.goToLevel1,
       undefined,
@@ -140,7 +135,7 @@ export class Map1 extends Phaser.Scene {
     });
 
     this.physics.add.overlap(
-      this.player,
+      this.groupPlayer,
       this.rectColliderLevel2,
       this.goToLevel2,
       undefined,
@@ -155,12 +150,12 @@ export class Map1 extends Phaser.Scene {
   goToLevel1() {
     this.colliderLevel1.active = true;
     this.colliderLevel2.active = false;
-    this.player.setDepth(1.5);
+    this.groupPlayer.setDepth(1.5);
   }
 
   goToLevel2() {
     this.colliderLevel1.active = false;
     this.colliderLevel2.active = true;
-    this.player.setDepth(2.5);
+    this.groupPlayer.setDepth(2.5);
   }
 }

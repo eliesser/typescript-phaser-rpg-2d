@@ -1,4 +1,4 @@
-import { Map1 } from './maps/map1/map1';
+import { Map1 } from '../maps/map1/map1';
 
 export default class Player extends Phaser.Physics.Arcade.Sprite {
   velocityPlayer: number;
@@ -17,8 +17,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     walkingUp: 'walkingUp',
     walkingLeft: 'walkingLeft',
     walkingRight: 'walkingRight',
-    walkingUpLeft: 'walkingUpLeft',
-    walkingUpRight: 'walkingUpRight',
+    walkingULeft: 'walkingULeft',
+    walkingURight: 'walkingURight',
 
     dyingDown: 'dyingDown',
     dyingUp: 'dyingUp',
@@ -61,8 +61,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.walkingUp();
     this.walkingLeft();
     this.walkingRight();
-    this.walkingUpLeft();
-    this.walkingUpRight();
+    this.walkingULeft();
+    this.walkingURight();
 
     this.dyingDown();
     this.dyingUp();
@@ -87,10 +87,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         this.animations.last = this.animations.walkingUp;
       } else {
         this.setVelocityY(0);
-        if (this.direction === 'down')
-          this.animations.last = this.animations.standingDown;
-        else if (this.direction === 'up')
-          this.animations.last = this.animations.standingUp;
+        if (this.direction === 'down') this.animations.last = this.animations.standingDown;
+        else if (this.direction === 'up') this.animations.last = this.animations.standingUp;
       }
 
       if (this.scene.cursors.right.isDown) {
@@ -101,10 +99,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         this.animations.last = this.animations.walkingRight;
       } else {
         this.setVelocityX(0);
-        if (this.direction === 'right')
-          this.animations.last = this.animations.standingRight;
-        else if (this.direction === 'left')
-          this.animations.last = this.animations.standingLeft;
+        if (this.direction === 'right') this.animations.last = this.animations.standingRight;
+        else if (this.direction === 'left') this.animations.last = this.animations.standingLeft;
       }
     }
   }
@@ -127,32 +123,21 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     if (this.life > 0) {
       if (this.scene.cursors.up.isDown && this.scene.cursors.left.isDown) {
-        animationName = this.animations.walkingUpLeft;
-      } else if (
-        this.scene.cursors.up.isDown &&
-        this.scene.cursors.right.isDown
-      ) {
-        animationName = this.animations.walkingUpRight;
+        animationName = this.animations.walkingULeft;
+      } else if (this.scene.cursors.up.isDown && this.scene.cursors.right.isDown) {
+        animationName = this.animations.walkingURight;
       }
     } else {
       if (this.direction === 'down') animationName = this.animations.dyingDown;
       else if (this.direction === 'up') animationName = this.animations.dyingUp;
-      else if (this.direction === 'right')
-        animationName = this.animations.dyingRight;
-      else if (this.direction === 'left')
-        animationName = this.animations.dyingLeft;
+      else if (this.direction === 'right') animationName = this.animations.dyingRight;
+      else if (this.direction === 'left') animationName = this.animations.dyingLeft;
     }
 
-    if (this.anims.getName() !== animationName)
-      this.anims.play(animationName, true);
+    if (this.anims.getName() !== animationName) this.anims.play(animationName, true);
   }
 
-  animationPlayer(
-    key: string,
-    spritesheetKey: string,
-    row: number,
-    repeat: number = -1
-  ) {
+  animationPlayer(key: string, spritesheetKey: string, row: number, repeat: number = -1) {
     const lengthX = 8;
     const start = lengthX * row;
     const end = lengthX * row + lengthX - 1;
@@ -200,12 +185,12 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.animationPlayer('walkingRight', 'playerWalk', 5);
   }
 
-  walkingUpLeft() {
-    this.animationPlayer('walkingUpLeft', 'playerWalk', 2);
+  walkingULeft() {
+    this.animationPlayer('walkingULeft', 'playerWalk', 2);
   }
 
-  walkingUpRight() {
-    this.animationPlayer('walkingUpRight', 'playerWalk', 4);
+  walkingURight() {
+    this.animationPlayer('walkingURight', 'playerWalk', 4);
   }
 
   dyingDown() {
