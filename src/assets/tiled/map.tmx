@@ -6,7 +6,7 @@
  <tileset firstgid="1" name="water" tilewidth="64" tileheight="64" tilecount="1" columns="1">
   <image source="../tiny-swords-update-010/Terrain/Water/Water.png" width="64" height="64"/>
  </tileset>
- <tileset firstgid="2" name=" land-flat" tilewidth="64" tileheight="64" tilecount="40" columns="10">
+ <tileset firstgid="2" name="land-flat" tilewidth="64" tileheight="64" tilecount="40" columns="10">
   <image source="../tiny-swords-update-010/Terrain/Ground/Tilemap_Flat.png" width="640" height="256"/>
  </tileset>
  <tileset firstgid="42" name="land-elevation" tilewidth="64" tileheight="64" tilecount="32" columns="4">

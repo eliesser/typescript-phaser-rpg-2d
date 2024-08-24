@@ -833,8 +833,8 @@
                  "type":"",
                  "visible":true,
                  "width":120,
-                 "x":837.142857142857,
-                 "y":317.142857142857
+                 "x":837.143,
+                 "y":317.143
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -855,8 +855,8 @@
                  "type":"",
                  "visible":true,
                  "width":121.817,
-                 "x":836.489571428571,
-                 "y":196.381571428571
+                 "x":836.49,
+                 "y":196.382
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -922,7 +922,7 @@
          "imageheight":256,
          "imagewidth":640,
          "margin":0,
-         "name":" land-flat",
+         "name":"land-flat",
          "spacing":0,
          "tilecount":40,
          "tileheight":64,

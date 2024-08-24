@@ -40,7 +40,7 @@ export class Map1 extends Phaser.Scene {
 
     this.map = this.make.tilemap({ key: 'map' });
 
-    this.landFlat = this.map.addTilesetImage(' land-flat', 'landFlatImg')!;
+    this.landFlat = this.map.addTilesetImage('land-flat', 'landFlatImg')!;
     this.bridge = this.map.addTilesetImage('bridge', 'bridgeImg')!;
     this.foam = this.map.addTilesetImage('foam', 'foamImg')!;
     this.invisibleWall = this.map.addTilesetImage('invisible_wall', 'invisibleWallImg')!;
